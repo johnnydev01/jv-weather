@@ -1,14 +1,14 @@
 <div class="container-fluid">
     <div class="search-container">
         <div class="form-group">
-            <label for="">Pesquisar</label>
-            <div>
-                <input type="text" class="form-control" [formControl]="searchControl">
+            <label for="">{{text}}</label>
+            <div class="d-flex">
+                <input type="text" class="form-control mr-2" [formControl]="searchControl">
                 <button 
                     class="btn btn-dark" 
                     [disabled]="!searchControl.valid"
                     (click)="doSearch()"
-                ></button>
+                >Pesquisar</button>
             </div>
         </div>
     </div>
