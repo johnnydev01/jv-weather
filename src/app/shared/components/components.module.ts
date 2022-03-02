@@ -10,6 +10,7 @@ import { LoaderComponent } from './loader/loader.component';
   declarations: [
     LoaderComponent,
   ],
+  exports: [LoaderComponent]
 })
 export class ComponentsModule {
 }
