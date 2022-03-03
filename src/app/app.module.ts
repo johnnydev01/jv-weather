@@ -14,6 +14,8 @@ import { environment } from 'src/environments/environment';
 import { reducers } from './shared/state/app.reducer';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
+import { CustomRouterSerializer } from './shared/state/router/router.reducer';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -27,7 +29,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot() 
+    StoreRouterConnectingModule.forRoot({ serializer: CustomRouterSerializer}) 
   ],
   providers: [],
   bootstrap: [AppComponent]
