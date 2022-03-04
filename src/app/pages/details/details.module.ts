@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { DetailsEffects } from './state/details.effects';
 import { detailsReducer } from './state/details.reducer';
 import { DailyWeatherComponent } from './components/daily-weather/daily-weather.component';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 
 
@@ -15,6 +16,7 @@ import { DailyWeatherComponent } from './components/daily-weather/daily-weather.
   declarations: [DetailsPage, DailyWeatherComponent],
   imports: [
     CommonModule,
+    ComponentsModule,
     StoreModule.forFeature('details', detailsReducer),
     EffectsModule.forFeature([DetailsEffects]),
     RouterModule.forChild([

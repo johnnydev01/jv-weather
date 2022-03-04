@@ -11,7 +11,7 @@ import { HomePage } from './containers/home/home.page';
 import { HomeEffects } from './state/home.effects';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
-import { DetailedWeatherComponent } from './components/detailed-weather/detailed-weather.component';
+import { DetailedWeatherComponent } from '../../shared/components/detailed-weather/detailed-weather.component';
 import { RouterModule } from '@angular/router';
 
 
@@ -19,7 +19,6 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HomePage,
     CurrentWeatherComponent,
-    DetailedWeatherComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +26,7 @@ import { RouterModule } from '@angular/router';
     StoreModule.forFeature('home', homeReducer),
     EffectsModule.forFeature([HomeEffects]),
     ComponentsModule,
-    RouterModule
+    RouterModule,
   ]
 })
 export class HomeModule { }
