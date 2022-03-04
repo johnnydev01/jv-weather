@@ -11,7 +11,8 @@ export class CurrentWeatherComponent implements OnInit {
 
   @Input() cityWeather: CityWeather;
   @Output() toggleBookmark = new EventEmitter();
-  
+  @Input() isFavorite: boolean;
+
   get cityName(): string {
     return `${this.cityWeather.city.name} ${this.cityWeather.city.country}`;
   }
