@@ -11,14 +11,15 @@ import { HomePage } from './containers/home/home.page';
 import { HomeEffects } from './state/home.effects';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { CurrentWeatherComponent } from './components/current-weather/current-weather.component';
-import { DetailedWeatherComponent } from '../../shared/components/detailed-weather/detailed-weather.component';
 import { RouterModule } from '@angular/router';
+import { UnitSelectorComponent } from './containers/unit-selector/unit-selector.component';
 
 
 @NgModule({
   declarations: [
     HomePage,
     CurrentWeatherComponent,
+    UnitSelectorComponent,
   ],
   imports: [
     CommonModule,
