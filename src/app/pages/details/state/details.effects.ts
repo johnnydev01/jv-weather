@@ -20,14 +20,11 @@ export class DetailsEffects {
       withLatestFrom(this.store.pipe(select(fromRouterSelectors.selectRouterQueryParams))),
       mergeMap(([, queryParams]: [any, Params]) =>
         combineLatest([
-
           this.weatherService.getCityWeatherByCoord(queryParams.lat, queryParams.lon),
           this.weatherService.getWeatherDetails(queryParams.lat, queryParams.lon),
         ])
       ),
       catchError((err, caught$) => {
-        console.log('Failed')
-
         this.store.dispatch(fromDetailsActions.loadWeatherDetailsFailed());
         return caught$;
       }),

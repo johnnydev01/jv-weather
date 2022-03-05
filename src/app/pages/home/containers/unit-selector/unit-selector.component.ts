@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 
 import { AppState } from 'src/app/shared/state/app.reducer';
 import { Units } from 'src/app/shared/models/units.enum';
-import * as fromConfigActions from '../../../../shared/state/config/config.actions';
 import * as fromConfigSelectors from '../../../../shared/state/config/config.selectors';
+import * as fromConfigActions from '../../../../shared/state/config/config.actions';
 
 @Component({
   selector: 'jv-unit-selector',

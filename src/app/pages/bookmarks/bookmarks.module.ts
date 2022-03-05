@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-
-import { BookmarksEffects } from './state/bookmarks.effects';
 import { bookmarkReducer } from './state/bookmarks.reducer';
-import { BookmarksPage } from './containers/bookmarks.page';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BookmarksEffects } from './state/bookmarks.effects';
+import { BookmarksPage } from './containers/bookmarks.page';
 
 @NgModule({
-  declarations: [
-    BookmarksPage
-  ],
   imports: [
     CommonModule,
-    ComponentsModule,
+    RouterModule,
     ReactiveFormsModule,
     StoreModule.forFeature('bookmarks', bookmarkReducer),
     EffectsModule.forFeature([BookmarksEffects]),
-    RouterModule
-  ]
+    ComponentsModule,
+  ],
+  declarations: [
+    BookmarksPage,
+  ],
 })
-export class BookmarksModule { }
+export class BookmarksModule {
+}

@@ -1,34 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DetailsPage } from './containers/details/details.page';
 import { RouterModule } from '@angular/router';
-import { DetailsGuard } from './services/details.guard.';
-import { EffectsModule } from '@ngrx/effects';
+
 import { StoreModule } from '@ngrx/store';
-import { DetailsEffects } from './state/details.effects';
+import { EffectsModule } from '@ngrx/effects';
+
+import { DetailsPage } from './containers/details/details.page';
 import { detailsReducer } from './state/details.reducer';
-import { DailyWeatherComponent } from './components/daily-weather/daily-weather.component';
+import { DetailsEffects } from './state/details.effects';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
-
-
+import { DailyWeatherComponent } from './components/daily-weather/daily-weather.component';
+import { DetailsGuard } from './services/details.guard.';
 
 @NgModule({
-  declarations: [DetailsPage, DailyWeatherComponent],
   imports: [
     CommonModule,
-    ComponentsModule,
+    RouterModule.forChild([
+      { path: '', component: DetailsPage, canActivate: [DetailsGuard] },
+    ]),
     StoreModule.forFeature('details', detailsReducer),
     EffectsModule.forFeature([DetailsEffects]),
-    RouterModule.forChild([
-      {
-        path: '',
-        component: DetailsPage,
-        canActivate: [
-          DetailsGuard
-        ]
-      }
-    ])
+    ComponentsModule,
   ],
-  providers: [DetailsGuard]
+  declarations: [
+    DetailsPage,
+    DailyWeatherComponent,
+  ],
+  providers: [
+    DetailsGuard,
+  ],
 })
-export class DetailsModule { }
+export class DetailsModule {
+}
